@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  description: Common Fate error logging API
+  title: Telemetry
+  version: "1.0"
+servers:
+- url: http://localhost:6062
+tags:
+- name: Telemetry
+paths:
+  /events:
+    post:
+      operationId: log-event
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        "200":
+          description: OK
+      summary: Log an event
+      tags:
+      - Telemetry
+  /errors:
+    post:
+      operationId: log-error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TelemError'
+      responses:
+        "200":
+          description: OK
+      summary: Log an error
+      tags:
+      - Telemetry
+components:
+  schemas:
+    Event:
+      example:
+        data: '{}'
+      properties:
+        data:
+          type: object
+      title: Event
+      type: object
+    TelemError:
+      example:
+        data: '{}'
+      properties:
+        data:
+          type: object
+      title: Error
+      type: object
