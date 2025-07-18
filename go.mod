@@ -1,8 +1,10 @@
 module github.com/common-fate/telem-client-go
 
-go 1.13
+go 1.23.0
 
 require (
-	golang.org/x/oauth2 v0.0.0-20210323180902-22b0adad7558
 	github.com/aws/aws-sdk-go v1.34.14
+	golang.org/x/oauth2 v0.27.0
 )
+
+require github.com/jmespath/go-jmespath v0.3.0 // indirect
